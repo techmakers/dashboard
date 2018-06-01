@@ -19,6 +19,9 @@ Per ogni dashboard "registrata" nel sistema, è presente un icona che presenta c
 
 Lo standard CSS è quello di bootstrap 4, ogni dashboard dovrebbe essere rappresentata da una card: [https://getbootstrap.com/docs/4.0/components/card/](https://getbootstrap.com/docs/4.0/components/card/)
 
+L'icona con numerino bianco è realizzabile mediante il componente "badge" di boostrap 4: [https://getbootstrap.com/docs/4.0/components/badge/](https://getbootstrap.com/docs/4.0/components/badge/)
+
+
 L'ordinamento delle dashboard nella pagina indice è impostato secondo il valore di una proprietà "index" che viene assegnata ad ogni dashboard. Le dashboard con index "0" sono messe per ultime.
 
 ## Struttura 
@@ -41,7 +44,10 @@ La funzione ```run``` potrà essere richiamata manualmente o da procedura schedu
 Sono quelle operazioni che saranno disponibili come link, pulsanti o altro, all'interno della dashboard.
 
 
-## Funzionamento
+## Funzionamento (API)
+
+
+### Registrazione della dashboard nella pagina indice
 
 Ogni dashboard si registra sulla pagina indice invocando un apposito metodo esposto dall'API del package "techmakers:dashboard".
 
@@ -60,3 +66,15 @@ tmdashboard.register(
 	99999
 );
 ```
+
+Quando la dashboard "ticket" vuole mostrare il numerino di "notifica" nella dashboard principale dovrà chiamare l'apposito metodo ```notify``` come da esempio:
+
+
+```
+tmdashboard.notify(
+	"ticket",
+	"4"
+);
+```
+dove "ticket" è il nome della dasboard e "4" è il numero da mostrare nel pallino rosso.
+
