@@ -8,7 +8,7 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.6.1.1');
-  api.use('ecmascript');
+  api.use(['ecmascript','mongo','templating']);
 
   api.addFiles('dashboard-collections.js') ;
   api.addFiles('dashboard-publications.js','server') ;
