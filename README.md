@@ -46,6 +46,17 @@ Sono quelle operazioni che saranno disponibili come link, pulsanti o altro, all'
 
 ## Funzionamento (API)
 
+### Inizializzazione
+
+Il motore della dashboard deve essere inizializzato all'avviamento dell'applicativo con il metodo ```init```, indicando le opzioni che si desiderano, ad esempio: la collection ove memorizzare le dashboard.
+
+```
+tmdashboard.init({
+	collection: myCollectionObjForDashboardIndex
+});
+```
+La collection di default, se non indicata, verrà appositamente creata con il nome "tmdashboard.dashboards" e disponibile come  ```tmdashboard.registeredDashboardsCollection```
+
 
 ### Registrazione della dashboard nella pagina indice
 
@@ -77,4 +88,10 @@ tmdashboard.notify(
 );
 ```
 dove "ticket" è il nome della dasboard e "4" è il numero da mostrare nel pallino rosso.
+
+### Template pagina indice
+
+Il package espone la pagina indice con un template denominato "tmdashboard", richiamabile con la route di default "/tmdashboard" o con quella spcificata nelle ```options``` del metodo ```init```.
+
+
 
