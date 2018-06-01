@@ -27,4 +27,36 @@ Il tutto deve essere organizzato in package autoconsistenti.
 
 Il package principale, che andremo a nominare "techmakers:dashboard" conterrà il template di elenco delle dashboard e un api sia lato client che lato server accessibili alle dashboard che si "registreranno" per poter essere mostrate nella pagina indice e quindi accessibili agli utenti.
 
-Per ogni dashboard verrà creato un 
+Per ogni dashboard verrà creato un package specifico che esegue le operazioni standard e particolari.
+
+### Operazioni standard
+
+Ogni package di dashboard deve esporre una funzione ```run``` che prepara i dati da visualizzare.
+
+La funzione ```run``` potrà essere richiamata manualmente o da procedura schedulata (vedremo poi come schedulare il lancio).
+
+
+### Operazioni particolari
+
+Sono quelle operazioni che saranno disponibili come link, pulsanti o altro, all'interno della dashboard.
+
+
+## Funzionamento
+
+Ogni dashboard si registra sulla pagina indice invocando un apposito metodo esposto dall'API del package "techmakers:dashboard".
+
+Il package espone un oggetto con nome: ```tmdashboard```.
+
+Tale metodo è denominato ```register``` e accetta in input i seguenti parametri: name, route, description, roles, index.
+
+Esempio:
+
+```
+tmdashboard.register(
+	"ticket",
+	"/dashboardticket",
+	"Mostra i tempi di attraversamento dei ticket",
+	['admin','user'],
+	99999
+);
+```
