@@ -1,3 +1,42 @@
-<template name="tmdashboard">
-	<h1>Dashboard</h1>
+<template name="tmdashboards">
+		<div class="text-center row"><div class="col">{{info}}</div></div>
+		{{#if selectedDashboard}}
+			{{> tmSelectedDashboard selectedDashboard}}
+		{{else}}
+			{{#unless dashboards}}
+				<div class="text-center">NO DASHBOARD AVAILABLE</div>
+			{{/unless}}
+			<div class="row">
+				{{#each dashboards}}
+					<div class="col-3 mb-2">{{ > tmdashboardelement}}</div>
+				{{/each}}
+			</div>
+		{{/if}}
+</template>
+
+<template name="tmdashboardelement">
+	<div class="card">
+	  <div class="card-header">
+	  	<div class="row">
+	  		<div class="col-9 text-nowrap">{{name}}</div>
+	  		<div class="col-2"><span class="badge badge-danger">{{message}}</span></div>
+	  	</div>
+	    
+	  </div>
+	  <div class="card-body">
+	    <p class="card-text" style="height:100px">{{description}}</p>
+	    <button class="btn btn-primary btn-block" dashboardViewButton>View</button>
+	  </div>
+	</div>
+</template>
+
+<template name="tmSelectedDashboard">
+	<div class="row">
+		<div class="col-2">
+			<button class="btn btn-sm btn-success" showDashboardsButton>Dashboards</button>
+		</div>
+		<div class="col-10 text-center">
+			<h4>{{name}}</h4>
+		</div>
+	</div>
 </template>

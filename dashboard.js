@@ -3,6 +3,7 @@ export const tmdashboard = {} ;
 tmdashboard.test = true ;
 
 tmdashboard.init = function(options){
+	options = options || {} ;
 	if (options.collection){
 		tmdashboard.registeredDashboardsCollection = options.collection ;
 	} else {
@@ -11,6 +12,7 @@ tmdashboard.init = function(options){
 }
 
 tmdashboard.register = function(
+	_id,
 	name,
 	route,
 	description,
@@ -18,11 +20,30 @@ tmdashboard.register = function(
 	index
 ){
 
+	tmdashboard.registeredDashboardsCollection.upsert({
+		_id:_id
+	},{ 
+		$set:{
+			_id: _id,
+			name:name,
+			route:route,
+			description:description,
+			roles:roles,
+			index:index
+		}
+	}) ;
+
 };
 
 tmdashboard.notify = function(
-	name,
+	_id,
 	message
 ){
-
+	tmdashboard.registeredDashboardsCollection.update({
+		_id:_id
+	},{ 
+		$set:{
+			message:message
+		}
+	}) ;
 };

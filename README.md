@@ -64,14 +64,14 @@ Ogni dashboard si registra sulla pagina indice invocando un apposito metodo espo
 
 Il package espone un oggetto con nome: ```tmdashboard```.
 
-Tale metodo è denominato ```register``` e accetta in input i seguenti parametri: name, route, description, roles, index.
+Tale metodo è denominato ```register``` e accetta in input i seguenti parametri: name, templatename, description, roles, index.
 
 Esempio:
 
 ```
 tmdashboard.register(
 	"ticket",
-	"/dashboardticket",
+	"dashboardticket",
 	"Mostra i tempi di attraversamento dei ticket",
 	['admin','user'],
 	99999
