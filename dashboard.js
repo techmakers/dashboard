@@ -14,7 +14,7 @@ tmdashboard.init = function(options){
 tmdashboard.register = function(
 	_id,
 	name,
-	route,
+	templatename,
 	description,
 	roles,
 	index
@@ -22,11 +22,11 @@ tmdashboard.register = function(
 
 	tmdashboard.registeredDashboardsCollection.upsert({
 		_id:_id
-	},{ 
+	},{
 		$set:{
 			_id: _id,
 			name:name,
-			route:route,
+			templatename:templatename,
 			description:description,
 			roles:roles,
 			index:index
@@ -41,7 +41,7 @@ tmdashboard.notify = function(
 ){
 	tmdashboard.registeredDashboardsCollection.update({
 		_id:_id
-	},{ 
+	},{
 		$set:{
 			message:message
 		}

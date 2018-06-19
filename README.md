@@ -64,7 +64,7 @@ La collection di default, se non indicata, verrà appositamente creata con il no
 
 Ogni dashboard si registra sulla pagina indice invocando un apposito metodo esposto dall'API del package "techmakers:dashboard".
 
-Tale metodo è denominato ```register``` e accetta in input i seguenti parametri: name, templatename, description, roles, index.
+Tale metodo è denominato ```register``` e accetta in input i seguenti parametri: ```_id, name, templatename, description, roles, index```.
 
 Esempio:
 
