@@ -32,19 +32,6 @@ Il package principale, che andremo a nominare "techmakers:dashboard" conterrà i
 
 Il package principale espone un oggetto con nome: ```tmdashboard```.
 
-Per ogni dashboard verrà creato un package specifico che esegue le operazioni standard e particolari.
-
-### Operazioni standard
-
-Ogni package di dashboard deve esporre una funzione ```run``` che prepara i dati da visualizzare.
-
-La funzione ```run``` potrà essere richiamata manualmente o da procedura schedulata (vedremo poi come schedulare il lancio).
-
-
-### Operazioni particolari
-
-Sono quelle operazioni che saranno disponibili come link, pulsanti o altro, all'interno della dashboard.
-
 
 ## Funzionamento (API)
 
