@@ -32,9 +32,6 @@ Template.tmdashboards.helpers({
 }) ;
 
 Template.tmdashboards.events({
-	'click [testButton]'(e,t){
-		t.pippo.info.set("ciao") ;
-	},
 	'click [showDashboardsButton]'(e,t){
 		t.selectedDashboard.set() ;
 	}
