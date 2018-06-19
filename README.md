@@ -1,4 +1,4 @@
-# Analisi Dashboard 
+# Analisi Dashboard
 
 Scopo: creare un sistema standard di costruzione delle dashboard.
 
@@ -24,11 +24,13 @@ L'icona con numerino bianco è realizzabile mediante il componente "badge" di bo
 
 L'ordinamento delle dashboard nella pagina indice è impostato secondo il valore di una proprietà "index" che viene assegnata ad ogni dashboard. Le dashboard con index "0" sono messe per ultime.
 
-## Struttura 
+## Struttura
 
 Il tutto deve essere organizzato in package autoconsistenti.
 
-Il package principale, che andremo a nominare "techmakers:dashboard" conterrà il template di elenco delle dashboard e un api sia lato client che lato server accessibili alle dashboard che si "registreranno" per poter essere mostrate nella pagina indice e quindi accessibili agli utenti.
+Il package principale, che andremo a nominare "techmakers:dashboard" conterrà il template di elenco delle dashboard e un API sia lato client che lato server accessibili alle dashboard che si "registreranno" per poter essere mostrate nella pagina indice e quindi accessibili agli utenti.
+
+Il package principale espone un oggetto con nome: ```tmdashboard```.
 
 Per ogni dashboard verrà creato un package specifico che esegue le operazioni standard e particolari.
 
@@ -55,14 +57,12 @@ tmdashboard.init({
 	collection: myCollectionObjForDashboardIndex
 });
 ```
-La collection di default, se non indicata, verrà appositamente creata con il nome "tmdashboard.dashboards" e disponibile come  ```tmdashboard.registeredDashboardsCollection```
+La collection di default, se non indicata, verrà appositamente creata con il nome "tmdashboard.dashboards" e disponibile come proprietà pubblica del componente  ```tmdashboard.registeredDashboardsCollection```
 
 
 ### Registrazione della dashboard nella pagina indice
 
 Ogni dashboard si registra sulla pagina indice invocando un apposito metodo esposto dall'API del package "techmakers:dashboard".
-
-Il package espone un oggetto con nome: ```tmdashboard```.
 
 Tale metodo è denominato ```register``` e accetta in input i seguenti parametri: name, templatename, description, roles, index.
 
@@ -91,7 +91,4 @@ dove "ticket" è il nome della dasboard e "4" è il numero da mostrare nel palli
 
 ### Template pagina indice
 
-Il package espone la pagina indice con un template denominato "tmdashboard", richiamabile con la route di default "/tmdashboard" o con quella spcificata nelle ```options``` del metodo ```init```.
-
-
-
+Il package espone la pagina indice con un template denominato "tmdashboard", includibile in altri template mediante ```{{ >tmdashboard }}```
